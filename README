@@ -1,1 +1,38 @@
 Cmdspleef for LLPL Realms
+
+using System;
+using System.Threading;
+
+namespace Mcforge
+{
+    class Cmdspleef : Command
+    {
+        public override string name { get { return "spleef"; } }
+        public override string shortcut { get { return ""; } }
+        public override string type { get { return "other"; } }
+        public override bool museumUsable { get { return false; } }
+        public override LevelPermission defaultRank { get { return LevelPermission.Guest; } }
+
+        public override void Use(Player p, string message)
+        {
+            if (message == "") { Help(p); return; }
+            if (message == "go")
+            {
+                if (p.level.name == "spleef")
+                    Command.all.Find("goto").Use(p, "spleef");
+                return;
+            }
+            if (message == "rules")
+            {
+                Player.GlobalMessage("%0Rules for Spleef!");
+                Thread.Sleep(5000);
+                Player.GlobalMessage("%1If you get out, stay out!");
+                Thread.Sleep(5000);
+                Player.GlobalMessage("%2No flying! If caught flying you will be auto-disqualified.");
+                Thread.Sleep(5000);
+                Player.GlobalMessage("%3Have fun! Enjoy the game!");
+
+                foreach (Player pl in Player.players)
+                }
+
+Shit loads of mistakes so far.
